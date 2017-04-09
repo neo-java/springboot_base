@@ -1,0 +1,8 @@
+app:
+  name: springboot-base
+
+spring:
+  profiles.include: 'profile'
+  output:
+    ansi:
+      enabled: always
