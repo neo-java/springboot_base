@@ -1,6 +1,3 @@
-#imports:
-#    - { resource: 'parameters-profile.yml' }
-
 app:
   name: springboot-base
 
