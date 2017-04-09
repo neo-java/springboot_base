@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.samples</groupId>
 	<artifactId>spring-boot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 
 	<properties>
 
@@ -14,6 +14,7 @@
 
 		<!-- Spring -->
 		<spring-framework.version>3.2.3.RELEASE</spring-framework.version>
+        <start-class>hello.SampleController</start-class>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
@@ -40,7 +41,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 
 		<!-- Logging with SLF4J & LogBack -->
 		<dependency>
@@ -78,4 +78,87 @@
 		</dependency>
 
 	</dependencies>
+
+	<!-- spring boot build -->
+	<build>
+        <finalName>${project.artifactId}-${project.version}-${env}</finalName>
+		<!-- To define the plugin version in your parent POM -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>1.5.2.RELEASE</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<!-- To use the plugin goals in your POM or parent POM -->
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.5.2.RELEASE</version>
+
+                <configuration>
+                    <mainClass>${start-class}</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+			</plugin>
+		</plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources-${env}</directory>
+            </resource>
+        </resources>
+	</build>
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>local</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>han</id>
+            <properties>
+                <env>han</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>jmlee</id>
+            <properties>
+                <env>jmlee</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>junyoung</id>
+            <properties>
+                <env>junyoung</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>jhmin</id>
+            <properties>
+                <env>jhmin</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>parkkijin</id>
+            <properties>
+                <env>parkkijin</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>seiyeonkim</id>
+            <properties>
+                <env>seiyeonkim</env>
+            </properties>
+        </profile>
+    </profiles>
 </project>
