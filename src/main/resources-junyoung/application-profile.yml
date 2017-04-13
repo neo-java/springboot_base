@@ -1,5 +1,5 @@
 spring:
   profiles:
-    active: jun
+    active: junyoung
 server:
   port: 8090
