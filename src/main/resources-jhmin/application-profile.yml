@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: min
+server:
+  port: 4811
