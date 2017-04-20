@@ -1,5 +1,40 @@
 spring:
-  profiles:
+  profiles: 
     active: local
+  timerName: exampleTimer123
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+---
 server:
-  port: 9090
+    error:
+      whitelabel:
+        enable: false
+      address: 127.0.0.1
+      port: 9090
+---
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    lazyLoadingEnabled: true
+    aggressiveLazyLoading: false
+    mapUnderscoreToCamelCase: true
+---
+spring:
+  profiles: local
+  task:
+    fixedDelay: 1000
+    name: localTask
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot
+    username: root
+    password: qlalfqjsgh
+---
+spring:
+  profiles: dev
+  task:
+    fixedDelay: 5000
+    name: devTask
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot
+    username: root
+    password: qlalfqjsgh
