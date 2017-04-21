@@ -6,3 +6,8 @@ spring:
   output:
     ansi:
       enabled: always
+  datasource:
+    url: jdbc:mysql://dv-database.townus.co.kr
+    username: root
+    password: 1234qwer
+    driver-class-name: com.mysql.jdbc.Driver
