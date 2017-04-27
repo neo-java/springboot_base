@@ -1,14 +1,18 @@
 package com.example.project.domain;
 
-import java.util.List;
-
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-@Repository("userRepository")
-public class UserRepository extends SqlSessionDaoSupport{
+@Repository
+public class UserRepository {
 
-	public List<User> user (){
-		return getSqlSession().selectList("select * from auth_group");
+	private SqlSession sqlSession;
+
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
+	public User getUser() {
+		return (User) sqlSession.selectOne("select * from auth_group");
 	}
 }

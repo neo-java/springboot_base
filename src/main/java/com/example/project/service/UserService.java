@@ -17,6 +17,6 @@ public class UserService {
 	public List<User> userService () {
 		System.out.println("service");
 		
-		return userDao.user();
+		return (List<User>) userDao.getUser();
 	}
 }
