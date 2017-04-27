@@ -28,5 +28,4 @@ public class Application {
 		sessionFactory.setDataSource(dataSource);
 		return sessionFactory.getObject();
 	}
-	
 }
