@@ -7,16 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.project.domain.User;
 import com.example.project.domain.UserRepository;
+import com.example.project.dto.UserDto;
 
-@Service
-public class UserService {
 
-	@Autowired
-	private UserRepository userDao;
-	
-	public List<User> userService () {
-		System.out.println("service");
-		
-		return userDao.user();
-	}
+public interface UserService {
+
+	public List<UserDto> selectUserInfoList(UserDto userDto);
+	public UserDto selectUserInfo(UserDto userDto);
 }

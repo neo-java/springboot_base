@@ -5,7 +5,7 @@ import java.util.List;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
-@Repository("userRepository")
+//@Repository("userRepository")
 public class UserRepository extends SqlSessionDaoSupport{
 
 	public List<User> user (){

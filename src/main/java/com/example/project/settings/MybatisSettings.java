@@ -1,5 +1,6 @@
 package com.example.project.settings;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,15 +11,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+
 public class MybatisSettings {
 
-	@Bean
+	@Resource
 	public DataSource dataSource() {
 		return DataSourceBuilder.create().build();
 	}
 
-	@Bean
+	@Resource
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource, ApplicationContext applicationContext)
 			throws Exception {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
@@ -27,12 +28,12 @@ public class MybatisSettings {
 		return sqlSessionFactoryBean.getObject();
 	}
 
-	@Bean
+	@Resource(name = "sqlSessionFactory")
 	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
-	@Bean
+	@Resource
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource);

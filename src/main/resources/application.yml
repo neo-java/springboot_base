@@ -7,7 +7,10 @@ spring:
     ansi:
       enabled: always
   datasource:
-    url: jdbc:mysql://dv-database.townus.co.kr
+    url: jdbc:mysql://localhost:3306/test
     username: root
-    password: 1234qwer
+    password: 1234
     driver-class-name: com.mysql.jdbc.Driver
+    
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml

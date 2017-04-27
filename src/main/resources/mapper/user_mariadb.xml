@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.project.service.UserService">
+
+	<resultMap type="com.example.project.dto.UserDto" id="UserInfo">
+		<id property="id" column="ID" />
+		<result property="userId" column="USER_ID" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userName" column="USER_NAME" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="updateTime" column="UPDATE_TIME" />
+	</resultMap>
+	
+	
+	
+	<select id="selectUserInfoList" 
+		parameterType="com.example.project.dto.UserDto" resultMap="UserInfo">
+		select
+			ID, USER_ID, USER_EMAIL, USER_NAME, CREATE_TIME, UPDATE_TIME 
+		from
+			USER
+	</select>
+	
+<!-- 	<update id="updateUserInfo" parameterType="net.herit.services.security.authc.dto.UserDTO"> -->
+<!-- 		update USER -->
+<!-- 		set -->
+<!-- 			NAME = #{name}, EMAIL = #{email}, PHONE = #{phone}, UPDATE_TIME = SYSDATE(), PASSWORD =  #{password}, -->
+<!-- 			ADDRESS = #{address}, ADDRESS_DETAIL = #{addressDetail}, ZIP_CODE = #{zipCode} -->
+<!-- 		where -->
+<!-- 			ID = #{id} || EMAIL = #{email} -->
+<!-- 	</update> -->
+	
+<!-- 	<insert id="insertUserInfo"  -->
+<!-- 		parameterType="net.herit.services.security.authc.dto.UserDTO"> -->
+<!-- 		insert into USER (ID, LOGIN_ID, PASSWORD, EMAIL, NAME, ADDRESS, ADDRESS_DETAIL, ZIP_CODE, ENABLED, CREATE_TIME, UPDATE_TIME )  -->
+<!-- 		values (#{id}, #{loginId}, #{password}, #{email}, #{name}, #{address}, #{addressDetail}, #{zipCode}, #{enabled} , SYSDATE(), SYSDATE()); -->
+<!-- 	</insert> -->
+	
+<!-- 	<select id="selectUserLoginIdInfo"  -->
+<!-- 		parameterType="net.herit.services.security.authc.dto.UserDTO" resultMap="userInfo"> -->
+<!-- 		select -->
+<!-- 			LOGIN_ID, CREATE_TIME, EMAIL -->
+<!-- 		from -->
+<!-- 			USER -->
+<!-- 		WHERE  -->
+<!-- 			LOGIN_ID = #{loginId} || EMAIL = #{email} -->
+<!-- 	</select> -->
+	
+	
+</mapper>
