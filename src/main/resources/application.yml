@@ -7,7 +7,13 @@ spring:
     ansi:
       enabled: always
   datasource:
-    url: jdbc:mysql://dv-database.townus.co.kr
+    url: jdbc:mysql://localhost:3306
     username: root
-    password: 1234qwer
+    password: rkskekfk
     driver-class-name: com.mysql.jdbc.Driver
+
+#mybatis:
+#  mapper-locations: ./mapper
+#  mybatis.type-aliases-package: com.example.project.domain
+#  configuration:
+#    default-statement-timeout: 30
